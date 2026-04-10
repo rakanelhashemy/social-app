@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+@import 'ngx-toastr/toastr';
+
+@utility container{
+margin-inline: auto;
+}
+
+@theme{
+    --color-maincolor:#00298d;
+    --color-second:#f0f2f5;
+}
+
+body{
+    background-color: var(--color-second);
+     font-family: "SN Pro", sans-serif;
+}

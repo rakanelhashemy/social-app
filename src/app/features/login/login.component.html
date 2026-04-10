@@ -1,0 +1,98 @@
+<section class="flex items-center justify-center min-h-screen">
+<div class="container bg-white rounded-lg shadow-lg border border-gray-300  p-4 max-w-3xl">
+
+
+
+
+
+    <form  [formGroup]="loginForm" (ngSubmit)="submitTheForm()" class="grid gap-y-2.5" >
+
+
+ 
+
+      
+<div class="relative ">
+    <input type="text" id="email" formControlName="email" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border-1 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " />
+    <label for="email" class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">email</label>
+
+</div>
+     @if (loginForm.get("email")?.invalid &&loginForm.get("email")?.touched) {
+        	     <div
+        class="flex p-2 mb-2 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+        role="alert"
+      >
+        <span class="sr-only">Danger</span>
+        <div>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+           
+            @if (loginForm.get("email")?.hasError("required")) {
+               <li class="ms-4">Full email is required.</li>
+            }
+            @else if(loginForm.get("email")?.hasError("email"))
+           {
+            <li class="ms-4">Please enter a valid email address.</li>
+           }
+		
+          </ul>
+        </div>
+      </div>
+      }
+
+
+
+
+
+<div class="relative ">
+    <input #paas type="password" formControlName="password" id="password" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-heading bg-transparent rounded-base border-1 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " />
+    <label for="password" class="absolute text-sm text-body duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-neutral-primary px-2 peer-focus:px-2 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Password</label>
+   <span  (click)="isShow(paas)" class=" text-sec absolute -translate-y-1/2  cursor-pointer  top-1/2 right-3 " > 
+ <i  class="fas" [class]=" show ?'fa-eye' :'fa-eye-slash'"></i>
+        </span>
+  </div>
+  @if (loginForm.get("password")?.invalid &&loginForm.get("password")?.touched) {
+        	     <div
+        class="flex p-2 mb-2 text-sm text-fg-danger-strong rounded-base bg-danger-soft border border-danger-subtle"
+        role="alert"
+      >
+        <span class="sr-only">Danger</span>
+        <div>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+           
+            @if (loginForm.get("password")?.hasError("required")) {
+               <li class="ms-4"> password Is Required.</li>
+            }
+            @else if(loginForm.get("password")?.hasError("pattern"))
+           {
+          <li class="ms-4">Must contain at least 8 chars, 1 uppercase, 1 lowercase, 1 number, and 1 special</li>
+           }
+		
+          </ul>
+        </div>
+      </div>
+      }
+
+
+
+
+
+<button type="submit" class="bg-maincolor py-2 rounded text-white cursor-pointer">Create New Account 
+  @if (loading) {
+        <i class="fas fa-spinner fa-spin"></i>
+      }
+</button>
+  <div class="text-maincolor text-center text-xs sm:text-sm text-sec">
+        ليس لديك حساب؟
+        <a
+          routerLink="/register"
+          class="text-main font-medium"
+        >
+          إنشاء حساب جديد
+          
+        </a>
+      </div>
+
+ </form>
+
+
+ </div>
+</section>

@@ -1,0 +1,67 @@
+<div class="mx-auto max-w-7xl px-3 py-3.5">
+  <main class="min-w-0">
+    <div class="space-y-5 sm:space-y-6">
+      
+      <!-- Profile Header Section -->
+      <section class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm sm:rounded-[28px]">
+        
+        <!-- Cover Photo Area -->
+        <div class="group/cover relative h-44 bg-[linear-gradient(112deg,#0f172a_0%,#1e3a5f_36%,#2b5178_72%,#5f8fb8_100%)] sm:h-52 lg:h-60">
+          <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/25 to-transparent"></div>
+          <div class="absolute right-3 top-3 opacity-0 group-hover/cover:opacity-100 transition">
+            <label class="cursor-pointer rounded-lg bg-black/45 px-3 py-1.5 text-xs font-bold text-white backdrop-blur hover:bg-black/60">
+              Add cover
+              <input type="file" class="hidden">
+            </label>
+          </div>
+        </div>
+
+        <!-- Profile Details Card -->
+        <div class="relative -mt-12 px-3 pb-5 sm:-mt-16 sm:px-8 sm:pb-6">
+          <div class="rounded-3xl border border-white/60 bg-white/90 p-5 backdrop-blur-xl sm:p-7">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              
+              <!-- User Info -->
+              <div class="flex items-end gap-4">
+                <div class="group/avatar relative shrink-0">
+                  <img class="h-28 w-28 rounded-full border-4 border-white object-cover shadow-md ring-2 ring-blue-100" [src]="userprofile.photo || 'https://pub-3cba56bacf9f4965bbb0989e07dada12.r2.dev/linkedPosts/default-profile.png'" alt="Profile">
+                </div>
+                <div class="pb-1">
+                  <h2 class="text-2xl font-black text-slate-900 sm:text-4xl">{{userprofile.name}}</h2>
+                  <p class="text-lg font-semibold text-slate-500">@{{userprofile.username}}</p>
+                </div>
+              </div>
+
+              <!-- Stats Grid -->
+              <div class="grid w-full grid-cols-3 gap-2 lg:w-[400px]">
+                <div class="rounded-2xl border border-slate-200 bg-white p-3 text-center">
+                  <p class="text-[11px] font-bold uppercase text-slate-500">Followers</p>
+                  <p class="text-2xl font-black text-slate-900">{{userprofile.followersCount}}</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white p-3 text-center">
+                  <p class="text-[11px] font-bold uppercase text-slate-500">Following</p>
+                  <p class="text-2xl font-black text-slate-900">{{userprofile.followingCount}}</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white p-3 text-center">
+                  <p class="text-[11px] font-bold uppercase text-slate-500">bookmarks</p>
+                  <p class="text-2xl font-black text-slate-900">{{userprofile.bookmarksCount}}</p>
+                </div>
+              </div>
+            </div>
+
+          
+            <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 class="text-sm font-extrabold text-slate-800">About</h3>
+              <div class="mt-2 text-sm text-slate-600">
+                <p>{{userprofile.email}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  
+
+    </div>
+  </main>
+</div>
