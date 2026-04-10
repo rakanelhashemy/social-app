@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { initFlowbite } from 'flowbite';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 @Component({
   selector: 'app-nav',
   imports: [RouterLink, RouterLinkActive],
@@ -11,9 +11,11 @@ export class NavComponent implements OnInit {
 ngOnInit(): void {
   initFlowbite();
 }
+    private readonly router=  inject(Router);
   logout(){
     localStorage.removeItem("Token")
    localStorage.removeItem("userInfo")
+  this.router.navigate(["/feed"])
   }
 }
 
