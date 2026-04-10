@@ -15,7 +15,7 @@ ngOnInit(): void {
   logout(){
     localStorage.removeItem("Token")
    localStorage.removeItem("userInfo")
-  this.router.navigate(["/feed"])
+  this.router.navigate(["/login"])
   }
 }
 
